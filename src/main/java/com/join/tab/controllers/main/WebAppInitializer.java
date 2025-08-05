@@ -4,7 +4,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import com.join.tab.config.ApplicationGlobalContainer;
 
-
+/**
+ *  dispatcher servlet
+ */
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     
     @Override
@@ -21,7 +23,5 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     protected String[] getServletMappings() {
         return new String[]{ "/" };
     }
-
-    
 
 }

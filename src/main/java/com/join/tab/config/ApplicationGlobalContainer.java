@@ -5,6 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
@@ -12,7 +14,7 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages="com.join.tab")
-public class ApplicationGlobalContainer {
+public class ApplicationGlobalContainer implements WebMvcConfigurer{
 	
 	@Bean
     public SpringResourceTemplateResolver templateResolver() {
@@ -40,4 +42,11 @@ public class ApplicationGlobalContainer {
         return resolver;
     }
 	
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+        .addResourceHandler("/css/**")
+        .addResourceLocations("classpath:/static/css/");
+    }
+
 }
