@@ -5,7 +5,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import com.join.tab.config.ApplicationGlobalContainer;
 
 /**
- *  dispatcher servlet
+ *  DispatcherServlet
  */
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     
