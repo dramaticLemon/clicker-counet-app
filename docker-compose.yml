@@ -1,0 +1,11 @@
+services:
+  webapp:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: tomcat-container
+    networks:
+      - network
+
+networks:
+  network:
