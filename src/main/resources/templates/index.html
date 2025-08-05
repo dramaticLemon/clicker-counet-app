@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home</title>
+    <meta charset="UTF-8">
+    <title>Click Counter</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<style>
+		body {
+		font-family: Arial, sans-serif;
+		text-align: center;
+		padding-top: 100px;
+		background-color: #f4f4f4;
+		}
+
+		h1 {
+			margin-bottom: 40px;
+		}
+
+		.count {
+			font-size: 80px;
+			font-weight: bold;
+			margin-bottom: 30px;
+			color: #333;
+		}
+
+		button {
+			font-size: 24px;
+			padding: 12px 30px;
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #0056b3;
+		}
+	</style>
 </head>
+
 <body>
-	<h1>Hello from controller</h1>
+    <h1>Click counter</h1>
+
+    <div class="count" th:text="${count}">0</div>
+
+    <form th:action="@{/click}" method="post">
+        <button type="submit">Click</button>
+    </form>
 </body>
 </html>
